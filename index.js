@@ -3,6 +3,14 @@ const buttons = document.querySelector('.buttons');
 let width = 16;
 let isMouseDown = false;
 
+grid.addEventListener('contextmenu', (e) => {
+  e.preventDefault();
+});
+
+grid.addEventListener('dragstart', (e) => {
+  e.preventDefault();
+});
+
 let updateGrid = (size) => {
   for (let i = 0; i < size ** 2; i++) {
     const box = document.createElement('div');
@@ -20,6 +28,7 @@ selectGrid();
 buttons.addEventListener('click', (e) => {
   switch(e.target.id) {
     case "change-grid-btn":
+      clearGrid();
       let newSize;
       do {
         newSize = +prompt('How many grids would you like per side? Enter a number between 0 to 100.');
@@ -35,6 +44,7 @@ buttons.addEventListener('click', (e) => {
       break;
     case "clear-btn":
       console.log('cleared');
+      clearGrid();
       break;
     default:
       break;
@@ -62,5 +72,12 @@ function selectGrid() {
     square.addEventListener('mouseup', () => {
       isMouseDown = false;
     });
+  }
+}
+
+let clearGrid = () => {
+  let squares = Array.from(document.querySelectorAll('.grid div'));
+  for (const square of squares) {
+    square.classList.remove('grey');
   }
 }
