@@ -1,6 +1,7 @@
 const grid = document.querySelector('.grid');
 const buttons = document.querySelector('.buttons');
 let width = 16;
+let isMouseDown = false;
 
 let updateGrid = (size) => {
   for (let i = 0; i < size ** 2; i++) {
@@ -14,6 +15,7 @@ let updateGrid = (size) => {
 }
 
 updateGrid(width);
+selectGrid();
 
 buttons.addEventListener('click', (e) => {
   switch(e.target.id) {
@@ -29,6 +31,7 @@ buttons.addEventListener('click', (e) => {
       width = newSize;
       removeOldGrid(grid);
       updateGrid(width);
+      selectGrid();
       break;
     case "clear-btn":
       console.log('cleared');
@@ -41,5 +44,23 @@ buttons.addEventListener('click', (e) => {
 let removeOldGrid = (element) => {
   while (element.firstChild) {
     element.removeChild(element.firstChild);
+  }
+}
+
+function selectGrid() {
+  let squares = Array.from(document.querySelectorAll('.grid div'));
+  for (const square of squares) {
+    square.addEventListener('mousedown', function() {
+      this.classList.add('grey');
+      isMouseDown = true;
+    });
+    square.addEventListener('mouseover', function() {
+      if (isMouseDown) {
+        this.classList.add('grey');
+      }
+    });
+    square.addEventListener('mouseup', () => {
+      isMouseDown = false;
+    });
   }
 }
