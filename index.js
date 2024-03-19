@@ -1,4 +1,5 @@
 const grid = document.querySelector('.grid');
+const buttons = document.querySelector('.buttons');
 const initialWidth = 16;
 
 let updateGrid = (size) => {
@@ -14,3 +15,15 @@ let updateGrid = (size) => {
 
 updateGrid(initialWidth);
 
+buttons.addEventListener('click', (e) => {
+  switch(e.target.id) {
+    case "change-grid-btn":
+      console.log('grid changed');
+      break;
+    case "clear-btn":
+      console.log('cleared');
+      break;
+    default:
+      break;
+  }
+});
