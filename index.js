@@ -17,7 +17,7 @@ let updateGrid = (size) => {
     box.style.width = Math.round( 800 / size * 1000) / 1000 + "px";
     box.style.height = Math.round( 800 / size * 1000) / 1000 + "px";
     box.style.boxSizing = "border-box";
-    box.style.border = "1px solid rgb(170, 170, 170)";
+    box.style.border = "1px solid rgb(203, 203, 203)";
     grid.appendChild(box);
   }
 }
