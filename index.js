@@ -43,7 +43,6 @@ buttons.addEventListener('click', (e) => {
       selectGrid();
       break;
     case "clear-btn":
-      console.log('cleared');
       clearGrid();
       break;
     default:
@@ -60,16 +59,16 @@ let removeOldGrid = (element) => {
 function selectGrid() {
   let squares = Array.from(document.querySelectorAll('.grid div'));
   for (const square of squares) {
-    square.addEventListener('mousedown', function() {
+    square.addEventListener('mousedown', function(e) {
       this.classList.add('grey');
       isMouseDown = true;
     });
-    square.addEventListener('mouseover', function() {
+    square.addEventListener('mouseover', function(e) {
       if (isMouseDown) {
         this.classList.add('grey');
       }
     });
-    square.addEventListener('mouseup', () => {
+    square.addEventListener('mouseup', (e) => {
       isMouseDown = false;
     });
   }
