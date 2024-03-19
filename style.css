@@ -18,6 +18,10 @@ body {
   flex-wrap: wrap;
 }
 
+.grid div {
+  flex-grow: 1;
+}
+
 .grid div:hover {
   background-color: grey;
 }
