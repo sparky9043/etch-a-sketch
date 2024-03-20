@@ -37,7 +37,3 @@ body {
 .container button:active {
   filter: brightness(0.9);
 }
-
-.grey {
-  background-color: rgb(47, 46, 46);
-}
