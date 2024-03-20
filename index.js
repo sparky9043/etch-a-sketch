@@ -69,7 +69,7 @@ let removeOldGrid = (element) => {
 }
 
 function selectGrid() {
-  let squares = Array.from(document.querySelectorAll('.grid div'));
+  let squares = document.querySelectorAll('.grid div');
   if (!isRandomColor) {
     for (const square of squares) {
       square.addEventListener('mousedown', function(e) {
