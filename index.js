@@ -18,6 +18,7 @@ let updateGrid = (size) => {
     box.style.height = Math.round( 800 / size * 1000) / 1000 + "px";
     box.style.boxSizing = "border-box";
     box.style.border = "1px solid rgb(203, 203, 203)";
+    box.style.backgroundColor = "";
     grid.appendChild(box);
   }
 }
@@ -60,12 +61,12 @@ function selectGrid() {
   let squares = Array.from(document.querySelectorAll('.grid div'));
   for (const square of squares) {
     square.addEventListener('mousedown', function(e) {
-      this.classList.add('grey');
+      this.style.backgroundColor = 'grey';
       isMouseDown = true;
     });
     square.addEventListener('mouseover', function(e) {
       if (isMouseDown) {
-        this.classList.add('grey');
+        this.style.backgroundColor = 'grey';
       }
     });
     square.addEventListener('mouseup', (e) => {
@@ -77,6 +78,6 @@ function selectGrid() {
 let clearGrid = () => {
   let squares = Array.from(document.querySelectorAll('.grid div'));
   for (const square of squares) {
-    square.classList.remove('grey');
+    square.style.backgroundColor = '';
   }
 }
