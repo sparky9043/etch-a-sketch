@@ -110,7 +110,7 @@ function selectGrid() {
 }
 
 let clearGrid = () => {
-  let squares = Array.from(document.querySelectorAll('.grid div'));
+  let squares = document.querySelectorAll('.grid div');
   for (const square of squares) {
     square.style.backgroundColor = '';
   }
