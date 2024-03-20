@@ -72,6 +72,7 @@ function selectGrid() {
   let squares = document.querySelectorAll('.grid div');
   if (!isRandomColor) {
     for (const square of squares) {
+      let clicked = 0;
       square.addEventListener('mousedown', function(e) {
         this.style.backgroundColor = 'grey';
         isMouseDown = true;
@@ -84,9 +85,16 @@ function selectGrid() {
       square.addEventListener('mouseup', function(e) {
         isMouseDown = false;
       });
+      square.addEventListener('click', function(e) {
+        if (this.style.backgroundColor) {
+          this.style.filter = `brightness(${(10 - clicked) / 10})`;
+          clicked++;
+        }
+      });
     }
   } else if (isRandomColor) {
     for (const square of squares) {
+      let clicked = 0;
       square.addEventListener('mousedown', function(e) {
         const red = Math.floor(Math.random()*256);
         const blue = Math.floor(Math.random()*256);
@@ -105,6 +113,12 @@ function selectGrid() {
       square.addEventListener('mouseup', function(e) {
         isMouseDown = false;
       });
+      square.addEventListener('click', function(e) {
+        if (this.style.backgroundColor) {
+          this.style.filter = `brightness(${(10 - clicked) / 10})`;
+          clicked++;
+        }
+      });
     }
   }
 }
@@ -113,5 +127,6 @@ let clearGrid = () => {
   let squares = document.querySelectorAll('.grid div');
   for (const square of squares) {
     square.style.backgroundColor = '';
+    square.style.filter = '';
   }
 }
