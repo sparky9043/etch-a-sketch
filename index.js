@@ -49,7 +49,7 @@ buttons.addEventListener('click', (e) => {
       break;
     case "random-btn":
       const randomBtn = document.querySelector('#random-btn');
-      if (isRandomColor === false) {
+      if (!isRandomColor) {
         isRandomColor = true;
         randomBtn.textContent = "Random: On";
       } else {
