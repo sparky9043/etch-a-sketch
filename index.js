@@ -2,6 +2,7 @@ const grid = document.querySelector('.grid');
 const buttons = document.querySelector('.buttons');
 let width = 16;
 let isMouseDown = false;
+let isRandomColor = false;
 
 grid.addEventListener('contextmenu', (e) => {
   e.preventDefault();
@@ -46,10 +47,20 @@ buttons.addEventListener('click', (e) => {
     case "clear-btn":
       clearGrid();
       break;
-    default:
-      break;
+    case "random-btn":
+      const randomBtn = document.querySelector('#random-btn');
+      if (isRandomColor === false) {
+        isRandomColor = true;
+        randomBtn.textContent = "Random: On";
+      } else {
+        isRandomColor = false;
+        randomBtn.textContent = "Random: Off";
+      }
+      selectGrid();
   }
 });
+
+
 
 let removeOldGrid = (element) => {
   while (element.firstChild) {
@@ -59,19 +70,42 @@ let removeOldGrid = (element) => {
 
 function selectGrid() {
   let squares = Array.from(document.querySelectorAll('.grid div'));
-  for (const square of squares) {
-    square.addEventListener('mousedown', function(e) {
-      this.style.backgroundColor = 'grey';
-      isMouseDown = true;
-    });
-    square.addEventListener('mouseover', function(e) {
-      if (isMouseDown) {
+  if (!isRandomColor) {
+    for (const square of squares) {
+      square.addEventListener('mousedown', function(e) {
         this.style.backgroundColor = 'grey';
-      }
-    });
-    square.addEventListener('mouseup', (e) => {
-      isMouseDown = false;
-    });
+        isMouseDown = true;
+      });
+      square.addEventListener('mouseover', function(e) {
+        if (isMouseDown) {
+          this.style.backgroundColor = 'grey';
+        }
+      });
+      square.addEventListener('mouseup', function(e) {
+        isMouseDown = false;
+      });
+    }
+  } else if (isRandomColor) {
+    for (const square of squares) {
+      square.addEventListener('mousedown', function(e) {
+        const red = Math.floor(Math.random()*256);
+        const blue = Math.floor(Math.random()*256);
+        const green = Math.floor(Math.random()*256);
+        this.style.backgroundColor = `rgb(${red}, ${blue}, ${green})`;
+        isMouseDown = true;
+      });
+      square.addEventListener('mouseover', function(e) {
+        if (isMouseDown) {
+          const red = Math.floor(Math.random()*256);
+          const blue = Math.floor(Math.random()*256);
+          const green = Math.floor(Math.random()*256);
+          this.style.backgroundColor = `rgb(${red}, ${blue}, ${green})`;
+        }
+      });
+      square.addEventListener('mouseup', function(e) {
+        isMouseDown = false;
+      });
+    }
   }
 }
 
