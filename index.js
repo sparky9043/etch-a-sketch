@@ -106,39 +106,3 @@ buttons.addEventListener('click', (e) => {
       selectGrid();
   }
 });
-
-// function selectGrid() {
-//   let squares = document.querySelectorAll('.grid div');
-//   if (!isRandomColor) {
-//     for (const square of squares) {
-//       let clicked = 0;
-//       square.addEventListener('mousedown', function(e) {
-//         this.style.backgroundColor = 'grey';
-//         isMouseDown = true;
-//       });
-//       square.addEventListener('mouseover', function(e) {
-//         if (isMouseDown) {
-//           this.style.backgroundColor = 'grey';
-//         }
-//       });
-//       square.addEventListener('mouseup', function(e) {
-//         isMouseDown = false;
-//       });
-//       square.addEventListener('click', function(e) {
-//         if (this.style.backgroundColor) {
-//           this.style.filter = `brightness(${(10 - ++clicked) / 10})`;
-//         }
-//       });
-//     }
-//   } else if (isRandomColor) {
-//   }
-// }
-
-// function clearGrid() {
-//   let squares = document.querySelectorAll('.grid div');
-//   for (const square of squares) {
-//     square.style.backgroundColor = '';
-//     square.style.filter = '';
-//   }
-//   selectGrid();
-// }
