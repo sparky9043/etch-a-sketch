@@ -29,6 +29,14 @@ function selectGrid() {
       this.classList.add('grey');
       isMouseDown = true;
     });
+    square.addEventListener('mouseover', function(e) {
+      if (isMouseDown) {
+        this.classList.add('grey');
+      }
+    });
+    square.addEventListener('mouseup', function(e) {
+      isMouseDown = false;
+    });
   });
 }
 
