@@ -28,7 +28,7 @@ body {
   background-color: grey;
 }
 
-/* .grid div:hover {
+.grid div:hover {
   background-color: rgb(79, 79, 79);
 }
 
@@ -42,4 +42,4 @@ body {
 
 .container button:active {
   filter: brightness(0.9);
-} */
+}
