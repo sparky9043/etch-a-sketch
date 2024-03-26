@@ -19,10 +19,12 @@ body {
 }
 
 .grid div {
+  border: 1px solid rgb(203, 203, 203);
+  box-sizing: border-box;
   flex-grow: 1;
 }
 
-.grid div:hover {
+/* .grid div:hover {
   background-color: rgb(79, 79, 79);
 }
 
@@ -36,4 +38,4 @@ body {
 
 .container button:active {
   filter: brightness(0.9);
-}
+} */
