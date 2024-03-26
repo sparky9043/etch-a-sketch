@@ -19,6 +19,17 @@ function updateGrid(size) {
     box.style.height = `${800 / size}px`;
     grid.appendChild(box);
   }
+  selectGrid();
+}
+
+function selectGrid() {
+  const squares = document.querySelectorAll('.grid div');
+  squares.forEach((square) => {
+    square.addEventListener('mousedown', function(e) {
+      this.classList.add('grey');
+      isMouseDown = true;
+    });
+  });
 }
 
 updateGrid(gridWidth);
