@@ -13,6 +13,7 @@ grid.addEventListener('dragstart', (e) => {
 });
 
 function updateGrid(size) {
+  clearGrid(grid);
   for (let i = 0; i < size ** 2; i++) {
     const box = document.createElement('div');
     box.style.width = `${800 / size}px`;
@@ -38,6 +39,12 @@ function selectGrid() {
       isMouseDown = false;
     });
   });
+}
+
+function clearGrid(element) {
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
 }
 
 updateGrid(gridWidth);
@@ -77,12 +84,6 @@ updateGrid(gridWidth);
 //       selectGrid();
 //   }
 // });
-
-// function removeOldGrid(element) {
-//   while (element.firstChild) {
-//     element.removeChild(element.firstChild);
-//   }
-// }
 
 // function selectGrid() {
 //   let squares = document.querySelectorAll('.grid div');
