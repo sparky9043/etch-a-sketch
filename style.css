@@ -1,6 +1,12 @@
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
+}
+
+:root {
+  --grid-size: 800px;
+  --color: #808080;
+  --border-color: #d2d2d2;
 }
 
 body {
@@ -10,36 +16,35 @@ body {
   align-items: center;
 }
 
+h1 {
+  margin: 8px;
+}
+
 .grid {
-  width: 800px;
-  height: 800px;
-  border: 2px solid black;
   display: flex;
   flex-wrap: wrap;
+  width: var(--grid-size);
+  height: var(--grid-size);
+  border: 1px solid #000;
 }
 
 .grid div {
-  border: 1px solid rgb(203, 203, 203);
   box-sizing: border-box;
-  flex-grow: 1;
-}
-
-.grey {
-  background-color: grey;
+  border: 1px solid var(--border-color);
 }
 
 .grid div:hover {
-  background-color: rgb(79, 79, 79);
+  background: #808080;
 }
 
-.container button {
-  font-size: 1.2em;
-  padding: 0.3em;
-  margin: 0.3em;
-  border-radius: 6px;
-  cursor: pointer;
+.controls input[type="button"] {
+  margin: 3px;
+  padding: 3px;
+  font-size: 16px;
 }
 
-.container button:active {
-  filter: brightness(0.9);
+.control {
+  margin: 16px;
 }
+
+
