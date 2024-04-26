@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Etch-A-Sketch | The Odin Project</title>
+  <title>Etch-A-Sketch | Practice Projects</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Etch-A-Sketch</h1>
-  <div class="container">
-    <div class="grid"></div>
-    <div class="buttons">
-      <button id="change-grid-btn">Change Grid Size</button>
-      <button id="clear-btn">Clear All</button>
-      <button id="random-btn">Random: Off</button>
-    </div>
+  <div class="grid"></div>
+  <div class="controls">
+    <label for="width">Enter How many squares you want per side:</label>
+    <input type="number" id="width" value="20" min="10" max="100">
+    <input type="button" id="submit-btn" value="Submit"><br>
+    <input type="button" id="clear-btn" value="Clear All">
+    <input type="button" id="random-btn" value="Random: Off">
+    <input type="button" id="grid-btn" value="Grid: On">
   </div>
-  <script src="index.js"></script> 
+  <script src="script.js"></script>
 </body>
 </html>
