@@ -83,13 +83,12 @@ createGrid(width);
 
 
 function updateColorMouseDown(e) {
-
   if (!this.dataset.clicked) {
     this.style.background = pickColor();
     this.setAttribute('data-brightness', '10');
     this.setAttribute('data-clicked', 'true');
-    isMouseDown = true;
   } else makeDarker(this);
+  isMouseDown = true;
 }
 
 function updateColorMouseEnter(e) {
